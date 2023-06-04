@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Heater.cpp" />
     <ClCompile Include="ProjektSmartRoom.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Heater.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
