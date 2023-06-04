@@ -127,11 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Fan.cpp" />
     <ClCompile Include="Heater.cpp" />
+    <ClCompile Include="Humidifier.cpp" />
     <ClCompile Include="ProjektSmartRoom.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fan.h" />
     <ClInclude Include="Heater.h" />
+    <ClInclude Include="Humidifier.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ProjektSmartRoom.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

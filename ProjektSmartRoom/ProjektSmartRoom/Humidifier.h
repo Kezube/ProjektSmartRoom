@@ -1,25 +1,26 @@
 #pragma once
 #include "Fan.h"
-class Heater
+class Humidifier
 {
 public:
-	Heater(double sp, double h, Fan* fan);
+	Humidifier(double sp, double h, Fan* f);
 	void ChangeSetPoint(double sp);
 	void ChangeHysteresis(double h);
-	void CheckTemperature(double t);
-
+	void CheckHumidity(double t);
 
 private:
 	double setPoint;
 	double hysteresis;
-	bool heaterIsRunning;
+	bool humidifierIsRunning;
 	bool fanIsRunning;
 	Fan* fan;
 
-	bool TurnOnHeater();
-	bool TurnOffHeater();
+	bool TurnOnHumidifier();
+	bool TurnOffHumidifier();
 	bool TurnOnFan();
 	bool TurnOffFan();
+
+
 
 };
 

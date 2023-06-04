@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Heater::Heater(double sp, double h)
+Heater::Heater(double sp, double h, Fan* fan) : fan(fan)
 {
 	setPoint = sp;
 	hysteresis = h;
@@ -10,42 +10,47 @@ Heater::Heater(double sp, double h)
     fanIsRunning = false;
 }
 
+
 void Heater::ChangeSetPoint(double sp)
 {
-	setPoint = sp;
+    if (sp > 10 && sp < 30)
+        setPoint = sp;
 }
+    
+	
 
 void Heater::ChangeHysteresis(double h)
 {
-	hysteresis = h;
+    if (h > 1 && h < 10)
+        hysteresis = h;
 }
 
-void Heater::CheckTemperature(double t)
+void Heater::CheckTemperature(double temperature)
 {
     if (!heaterIsRunning) 
     {
-        if (t <= setPoint - hysteresis)
+        if (temperature <= setPoint - hysteresis)
         {
             heaterIsRunning = TurnOnHeater();
         }
     }
     else
     {
-        if (t > setPoint - hysteresis) 
+        if (temperature > setPoint - hysteresis) 
         {
             heaterIsRunning = TurnOffHeater();
         }
     }
     if (!fanIsRunning)
     {
-        if (t >= setPoint + hysteresis)
+        if (temperature >= setPoint + hysteresis)
         {
             fanIsRunning = TurnOnFan();
         }
     }
     else
     {
-        if (t < setPoint + hysteresis)
+        if (temperature < setPoint + hysteresis)
         {
             fanIsRunning = TurnOffFan();
         }
@@ -56,27 +61,29 @@ void Heater::CheckTemperature(double t)
 bool Heater::TurnOnHeater()
 {
     //w³acz grza³kê 
-    cout << "heater on ";
+    cout << "heater on \n";
     return true;
 }
 
 bool Heater::TurnOffHeater()
 {
     // wy³acz grzanie
-    cout << "heater off ";
+    cout << "heater off \n";
     return false;
 }
 
 bool Heater::TurnOnFan()
 {
     // w³acz ch³odzenie
-    cout << "fan on ";
+    fan->heaterRequest = true;
+    fan->VentilateRequest();
     return true;
 }
 
 bool Heater::TurnOffFan()
 {
     // wy³acz ch³odzenie
-    cout << "fan off ";
+    fan->heaterRequest = false;
+    fan->VentilateRequest();
     return false;
 }

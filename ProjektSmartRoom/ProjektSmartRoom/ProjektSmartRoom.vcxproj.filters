@@ -21,10 +21,27 @@
     <ClCompile Include="Heater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Humidifier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Heater.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Humidifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ProjektSmartRoom.rc">
+      <Filter>Source Files\Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
